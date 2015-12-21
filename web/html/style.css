@@ -1,0 +1,76 @@
+.readrow  {
+    height: 12px;
+    border: 1px solid black;
+}
+div.reference {
+    height: 15px;
+    border: 1px solid red;
+    background-color: azure
+}
+
+td.base {
+    width: 6px;
+    height: 100%;
+    font-size: 6px;
+    font-weight: bold;
+}
+td.read {
+    font-size:6px;
+    width: 6px;
+}
+
+table.string {
+    height: 100%;
+}
+
+/*
+.cell {
+    width: 20px;
+    height: 40px;
+}
+*/
+input[type=button], input[type=submit], input[type=reset] {
+    background: #eee;
+    color: #222;
+    border: 1px outset #ccc;
+    padding: .1em .5em;
+}
+
+div#matrix {
+    height: 300px;
+    white-space: nowrap;
+    overflow-y: scroll;
+}
+
+.tumor_header {
+    height: 100%;
+    width: 10px;
+    display: inline-block;
+    border: 1px solid;
+    font-size: 6px;
+    
+}
+.gene_header {
+    height: 90%;
+    width: 30px;
+    font-size: 7px;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.geneRow {
+    height: 15px;
+    /*overflow: hidden;*/
+    white-space: nowrap;
+}
+
+.cell {
+    height: 95%;
+    width: 10px;
+    border:1px solid;
+    display: inline-block;
+    /*background-color: red;*/
+    /*background-color: lightyellow;*/
+}
+

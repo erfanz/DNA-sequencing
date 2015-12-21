@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script>
+            $( document ).ready(function() {
+
+                var nrow = 10;
+                var ncol = 5;
+
+                // Header Row:
+                var tumorHeaders = document.createElement("div");
+                var gh = document.createElement("div");
+                $(gh).attr({
+                    'id': 'geneheader_placeholder' ,
+                    'class': 'gene_header'
+                });
+                $(tumorHeaders).append(gh);
+                var header;
+
+                for (var c = 0; c < ncol; c++){
+                    header = document.createElement("div");
+                    $(header).attr({
+                        'id': 'tumorheader_' + c,
+                        'class': 'tumor_header'
+                    });
+                    header.innerHTML = "T" + c;
+                    $(tumorHeaders).append( header );
+                }
+                $( "#matrix" ).append( tumorHeaders );
+
+                for (var r = 0; r < nrow; r++) {
+                    var row = document.createElement("div");
+                    $(row).attr({
+                        'id': 'gene_' + r,
+                        'class': 'geneRow'
+                    });
+
+                    // First, add the gene header
+                    header = document.createElement("div");
+                    $(header).attr({
+                        'id': 'geneheader_' + r,
+                        'class': 'gene_header'
+                    });
+                    header.innerHTML = 'Gene ' + r;
+                    $(row).append(header);
+
+                    for (c = 0; c < ncol; c++){
+                        var col = document.createElement("div");
+                        $(col).attr({
+                            'id': 'g_' + r + '_t_' + c,
+                            'class': 'cell'
+                        });
+                        $(row).append( col );
+                    }
+                    //$(row).append('<div style="clear:both"></div>');
+                    $( "#matrix" ).append( row );
+                }
+                //console.log( "document loaded" );
+            });
+        </script>
+        <script>
+            $( window ).load(function() {
+                var geneID = 2;
+                var geneTagID = 'gene_' + geneID;
+                console.log(geneTagID);
+                //var geneRow = $('#'+geneTagID);
+                var length = $('#'+geneTagID).children('.cell').length;
+                $('#'+geneTagID).children('.cell').eq(2).css('background-color', 'red');
+                console.log(length);
+                
+                //console.log(geneRow);
+                //$('.cell', geneRow).empty();
+            })
+
+
+
+
+
+            $(function(){
+                $("div").click(function() {
+                    console.log(this.tagName + ', ' + this.id);
+                    
+                });
+            });
+
+        </script>
+
+    </head>
+    <body>
+        <div id = "matrix">
+        </div>
+        <div class="bigger" id="0" style="height: 20px; width: 30px; border: solid 1px;">
+            <div class="smaller" id="1" style="height: 15px; width: 10px; border: solid 1px; display: inline-block;"></div>
+            <div class="smaller" id = "2" style="height: 15px; width: 10px; border: solid 1px; display: inline-block;"></div>
+        </div>
+        
+        
+    </body>
+</html>
